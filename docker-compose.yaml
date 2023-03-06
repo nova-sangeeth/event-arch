@@ -1,0 +1,15 @@
+version: "3.8"
+
+networks:
+  redis-network:
+    driver: bridge
+services:
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+      - REDIS_REPLICATION_MODE=master
+      - REDIS_PASSWORD=password123
+    networks:
+      - redis-network
+    ports:
+      - "6379"
