@@ -1,8 +1,0 @@
-black==23.1.0
-fastapi==0.92.0
-pydantic==1.10.5
-redis==4.5.1
-redis-om==0.1.2
-SQLAlchemy==2.0.4
-uvicorn==0.20.0
-celery==5.2.7
