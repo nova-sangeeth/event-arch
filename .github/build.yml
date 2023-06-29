@@ -1,0 +1,6 @@
+name: Build Application
+on: 
+  workflow_dispathc:
+
+env:
+jobs:
