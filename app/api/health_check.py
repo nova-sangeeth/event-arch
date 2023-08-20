@@ -1,4 +1,13 @@
+"""
+Backend : api : Health Check 
+==============================
+This module contains the endpoints for login
+"""
+
 from fastapi import APIRouter
+
+__author__ = "novasangeeth@outlook.com"
+
 
 router = APIRouter()
 
