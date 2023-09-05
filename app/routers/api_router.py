@@ -1,9 +1,15 @@
+"""
+Backend : routers : API routers
+=================================
+This module contains the API routers for the backend application
+"""
+__author__ = "novasangeeth@outlook.com"
+
 from fastapi import APIRouter
 from api.health_check import router as health_check_router
 
-# from main import app
-
-
+# Instantiate a main router for the application
 main_router = APIRouter()
-# app.include_router(router=router)
+
+# Add the health checkouter to the main router
 main_router.include_router(router=health_check_router)
