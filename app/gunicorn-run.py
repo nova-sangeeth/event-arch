@@ -50,11 +50,11 @@ cmd = [
 
 # Use subprocess.Popen to start the server as a subprocess and capture its output
 with subprocess.Popen(
-        cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        bufsize=1,
-        universal_newlines=True,
+    cmd,
+    stdout=subprocess.PIPE,
+    stderr=subprocess.STDOUT,
+    bufsize=1,
+    universal_newlines=True,
 ) as process:
     # Iterate over the lines of the output and print them to the console
     for line in process.stdout:
