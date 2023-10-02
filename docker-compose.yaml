@@ -1,54 +1,53 @@
 version: "3.8"
 
 networks:
-    # Networks for the services
-    redis-network:
-        driver: bridge
-    postgres:
-        driver: bridge
+  # Networks for the services
+  redis-network:
+    driver: bridge
+  postgres:
+    driver: bridge
 # The service definition
 services:
-    redis:
-        image: 'bitnami/redis:latest'
-        environment:
-            - REDIS_REPLICATION_MODE=master
-            - REDIS_PASSWORD=password123
-        networks:
-            - redis-network
-        ports:
-            - "6379"
-    postgres:
-        container_name: postgres_container
-        image: postgres
-        environment:
-            POSTGRES_USER: admin
-            POSTGRES_PASSWORD: password
-            PGDATA: /data/postgres
-        volumes:
-            - postgres:/data/postgres
-        ports:
-            - "5432:5432"
-        networks:
-            - postgres
-        restart: unless-stopped
+  redis:
+    image: "bitnami/redis:latest"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+      - REDIS_PASSWORD=password123
+    networks:
+      - redis-network
+    ports:
+      - "6379"
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
 
-    pgadmin:
-        container_name: pgadmin_container
-        image: dpage/pgadmin4
-        environment:
-            PGADMIN_DEFAULT_EMAIL: admin
-            PGADMIN_DEFAULT_PASSWORD: password
-            PGADMIN_CONFIG_SERVER_MODE: 'False'
-        volumes:
-            - pgadmin:/var/lib/pgadmin
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    volumes:
+      - pgadmin:/var/lib/pgadmin
 
-        ports:
-            - "5050:80"
-        networks:
-            - postgres
-        restart: unless-stopped
-
+    ports:
+      - "5050:80"
+    networks:
+      - postgres
+    restart: unless-stopped
 
 volumes:
-    postgres:
-    pgadmin:
+  postgres:
+  pgadmin:
