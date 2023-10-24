@@ -6,7 +6,7 @@ This module contains the API routers for the backend application
 __author__ = "novasangeeth@outlook.com"
 
 from fastapi import APIRouter
-from api.health_check import router as health_check_router
+from app.api.health_check import router as health_check_router
 
 # Instantiate a main router for the application
 main_router = APIRouter()
