@@ -16,5 +16,6 @@ class Roles(Base):
     """
     The roles ORM model class
     """
+
     id = Column(Integer, primary_key=True, nullable=False, unique=True)
     role_name = Column(String(length=128), nullable=False, unique=True)
