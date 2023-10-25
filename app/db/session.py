@@ -11,7 +11,4 @@ from sqlalchemy.orm import Session
 
 #: Create the SQLA engine
 
-engine = create_engine(
-    url="",
-    echo_pool=None
-)
+engine = create_engine(url="", echo_pool=None)
