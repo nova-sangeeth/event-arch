@@ -16,5 +16,6 @@ class Permissions(Base):
     """
     The permission ORM model class
     """
+
     id = Column(Integer, primary_key=True, nullable=False, unique=True)
     permission = Column(String(length=128), nullable=True, unique=True)
