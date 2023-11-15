@@ -5,6 +5,7 @@ This module contains the endpoints for login
 """
 
 from fastapi import APIRouter
+from schema.health import HealthCheck
 
 __author__ = "novasangeeth@outlook.com"
 
@@ -12,12 +13,16 @@ __author__ = "novasangeeth@outlook.com"
 router = APIRouter()
 
 
-@router.get("/health-check/", tags=["Health Check"])
-def health_check() -> str:
+@router.get(
+    path="/health-check/",
+    tags=["Health Check"],
+    response_model=HealthCheck,
+)
+def api_health_check():
     """
-    An endpoint to check the application's health
+    Endpoint to check the application's health
     """
+
     # TODO: Make changes to improve the endpoint to check the db connection.
     # TODO: Make changes to improve the endpoint to check the Redis Cache.
-
     return {"msg": "OK"}
